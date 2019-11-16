@@ -1,0 +1,130 @@
+@using ManagementPortal.Models
+@using ManagementPortal.Common
+
+@model CompanyNews
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create News Item</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="formContainer">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.DateStamp, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateStamp, new { htmlAttributes = new { @class = "form-control datepicker", required = "required" } })
+                @Html.ValidationMessageFor(model => model.DateStamp, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExpirationDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ExpirationDate, new { htmlAttributes = new { @class = "form-control datepicker", required = "required", @readonly = "readonly", id = $"expDate_" } })
+            @Html.ValidationMessageFor(model => model.ExpirationDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.NewsItem, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NewsItem, new { htmlAttributes = new { @class = "form-control", required = "required", name = "the-textarea", id = "the-textarea", maxlength = "300" } })
+            @Html.ValidationMessageFor(model => model.NewsItem, "", new { @class = "text-danger" })
+            <div id="the-count">
+                <span id="current">0</span>
+                <span id="maximum">/300</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn-base btn-w-100px" id="submit" />
+            @Html.Partial(AnchorButtonGroupHelper.PartialView, AnchorButtonGroupHelper.GetBack())
+        </div>
+ 
+        
+    </div>
+</div>
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+
+    <script type="text/javascript">
+
+        $("#expDate_").datepicker({
+            defaultDate: "+1d",
+            changeMonth: false,
+            numberOfMonths: 1,
+            minDate: "+1d"
+        });
+
+
+        //THIS SCRIPT WAS REPLACED BY THE ABOVE
+        //$('#expDate_').change(function () {  //THIS SCRIPT MAKES SURE THAT THE EXPIRATION DATE OF THE NEWS POST IS SET TO A FUTURE DATE
+        //    var dateSelect = $("#expDate_").datepicker('getDate');
+        //    var now = new Date();
+        //    now.setHours(0, 0, 0, 0); 
+            
+        //    if (dateSelect <= now) {
+
+        //        alert("Expiration date must be set to a future date!");
+        //    }
+        //});
+    </script>
+    <script>
+        $('textarea').keyup(function () {
+            var characterCount = $(this).val().length,
+                current = $('#current'),
+                maximum = $('#maximum'),
+                theCount = $('#the-count');
+
+            current.text(characterCount);
+            /*This isn't entirely necessary, just playin around*/
+            if (characterCount < 70) {
+                current.css('color', '#666');
+            }
+            if (characterCount > 70 && characterCount < 90) {
+                current.css('color', '#6d5555');
+            }
+            if (characterCount > 90 && characterCount < 100) {
+                current.css('color', '#793535');
+            }
+            if (characterCount > 100 && characterCount < 120) {
+                current.css('color', '#841c1c');
+            }
+            if (characterCount > 120 && characterCount < 139) {
+                current.css('color', '#8f0001');
+            }
+
+            if (characterCount >= 140) {
+                maximum.css('color', '#8f0001');
+                current.css('color', '#8f0001');
+                theCount.css('font-weight', 'bold');
+            } else {
+                maximum.css('color', '#666');
+                theCount.css('font-weight', 'normal');
+            }
+        });
+    </script>
+
+    }
