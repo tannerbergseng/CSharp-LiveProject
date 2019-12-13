@@ -1,0 +1,53 @@
+@model IEnumerable<ManagementPortal.Models.Vacation>
+@using PagedList.Mvc;
+@using ManagementPortal.Helpers
+@using ManagementPortal.Enums
+@using ManagementPortal.Common
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--Added new Header container -->
+<div class="titleContainer">
+    <h2>Vacations</h2>
+</div>
+
+<div class="defaultContainer">
+
+    <!-- Removed old header <h2>Vacations</h2>-->
+    <div class="row">
+        <div class="col-3" align="left">
+            @Html.AnchorButton(AnchorType.Create, Url.Action("Create"))
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-3" align="center">
+                <div class="card rounded mt-4">
+                    <div class="card-header">
+                        <table>
+                            <tr>
+                                <td>User: @Html.DisplayFor(modelItem => item.User.FullName)</td>
+                            </tr>
+                            <tr>
+                                <td>Vacation Type: @Html.DisplayFor(modelItem => item.VacationType)</td>
+                            </tr>
+                            <tr>
+                                <td>Start Date: @Html.DisplayFor(modelItem => item.StartDate)</td>
+                            </tr>
+                            <tr>
+                                <td>End Date: @Html.DisplayFor(modelItem => item.EndDate)</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.Partial(AnchorButtonGroupHelper.PartialView, AnchorButtonGroupHelper.GetEditDetailsDelete(item.VacationID.ToString()))</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
