@@ -7,5 +7,15 @@ https://github.com/tannerbergseng/c-LiveProject/blob/master/forgotpassword.PNG
 https://github.com/tannerbergseng/c-LiveProject/blob/master/charactercount.txt
 https://github.com/tannerbergseng/c-LiveProject/blob/master/charactercount.PNG
 
+Focusing on front end development I was able to clean up and redesign the vacation page to make it fit in the site better and I turned out very happy with how it turned out, I also added a button to the side nav as well as making sure it was displaying the correct user and fixing the details page.
+https://github.com/tannerbergseng/c-LiveProject/blob/master/VacationCleanup.PNG
+Vacation Index code: https://github.com/tannerbergseng/c-LiveProject/blob/master/vacationIndex.txt
+Vacation Details code: https://github.com/tannerbergseng/c-LiveProject/blob/master/vacationDetails.txt
 
+Focusing on back end development I worked on making sure the schedule dates dont conflict with the vacation dates and if it did I created a new view to redirect the user creating the schedule to information on when that user is going to be on vacation. I did struggle with this a bit because I personally am not great at comparing dates so there was a lot of trial and error but in the end I got it working with no conflicts.
+https://github.com/tannerbergseng/c-LiveProject/blob/master/vacationCheck.txt
+https://github.com/tannerbergseng/c-LiveProject/blob/master/VacationCheck1.PNG
+https://github.com/tannerbergseng/c-LiveProject/blob/master/VacationCheck2.PNG
+
+At the end of the c# sprints I feel like I have gained so much confidence working in c# and web development and I was fortunate enough to be able to not only implement the vacation class into the database but also work on the vacation class in front end designing and making sure that the vacations don't conflict with any other scheduling which is very cool to be able to do. What I have gained from the C# live projects will be invaluble to me moving forward in my developing career and I was fortunate enough to be able to work with such a great team. 
 
