@@ -1,0 +1,19 @@
+ var user_vacation = db.Vacations.Where(u => u.User.Id == PersonId);
+
+            foreach (var vacation in user_vacation)
+            {
+                if(vacation.EndDate >= schedule.EndDate && vacation.StartDate <= schedule.StartDate)
+                {
+                    return View("VacationOverlap", vacation);
+                }
+                else if(schedule.StartDate <= vacation.EndDate && vacation.EndDate >= schedule.StartDate)
+                {
+                    if(schedule.StartDate <= vacation.StartDate && schedule.EndDate <= vacation.StartDate)
+                    {
+                    }
+                    else
+                    {
+                        return View("VacationOverlap", vacation);
+                    }
+                }
+            }
