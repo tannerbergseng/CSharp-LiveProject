@@ -7,5 +7,5 @@ https://github.com/tannerbergseng/c-LiveProject/blob/master/forgotpassword.PNG
 https://github.com/tannerbergseng/c-LiveProject/blob/master/charactercount.txt
 https://github.com/tannerbergseng/c-LiveProject/blob/master/charactercount.PNG
 
-Overall I felt very confident with the first 2 weeks working in the c# live project and look forward to improving on my skills in the weeks to come. 
+
 
