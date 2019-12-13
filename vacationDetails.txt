@@ -1,0 +1,57 @@
+
+
+@model ManagementPortal.Models.Vacation
+@using ManagementPortal.Common
+@using ManagementPortal.Helpers
+@using ManagementPortal.Enums
+@*the two above needed to get @Html.AnchorButton to work*@
+@{
+    ViewBag.Title = "Details";
+}
+
+    
+    <!--Added new Header container -->
+    <div class="titleContainer">
+        <h2>Details</h2>
+    </div>
+
+<div class="defaultContainer">
+    <h4>Vacation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <tr>
+            <td>User: @Html.DisplayFor(modelItem => modelItem.User.FullName)</td>
+        </tr>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VacationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VacationType)
+        </dd>
+
+    </dl>
+
+        <tr>
+            <td>@Html.Partial(AnchorButtonGroupHelper.PartialView, AnchorButtonGroupHelper.GetEditDeleteBack(Model.VacationID.ToString()))</td>
+        </tr>
+
+</div>
+
